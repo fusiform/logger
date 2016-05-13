@@ -1,0 +1,30 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "Server to report and log errors",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.7.1",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-jwt": "^3.4.0",
+    "jsonwebtoken": "^5.7.0",
+    "morgan": "^1.7.0",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fusiform/logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fusiform/logger/issues"
+  },
+  "homepage": "https://github.com/fusiform/logger#readme"
+}
