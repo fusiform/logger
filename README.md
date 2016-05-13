@@ -2,7 +2,7 @@
 
 ### How to use...
 
-For **User** errors, post to `/user/push`, with a request body as follows:
+For **User** errors, post to `/user/`, with a request body as follows:
 ```
 {
   "user_id": "XXXXX",
@@ -10,7 +10,7 @@ For **User** errors, post to `/user/push`, with a request body as follows:
 }
 ```
 
-For **Server** errors, post to `/service/push`, with a request body as follows:
+For **Server** errors, post to `/service/`, with a request body as follows:
 ```
 {
   "server_id":  "XXXXX",

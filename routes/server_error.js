@@ -12,7 +12,7 @@ module.exports = function(app, router) {
     var request = require('request');
     var fs = require('fs');
 
-    router.post('/push', function(req, res) {
+    router.post('/', function(req, res) {
 
       // console.log(req.body.message);
       load = app.get('webhookConfig').service_payload
