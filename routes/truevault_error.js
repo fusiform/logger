@@ -17,14 +17,16 @@ module.exports = function(app, router) {
       // console.log(req.body.message);
       load = app.get('webhookConfig').truevault_payload
       load['text'] = "*IP Address*: " + req.body.address + "\n"
-      + "*Error*: " + req.body.message
+      + "*Error*: " + req.body.message + "\n"
+      + "See log for details"
       // console.log(load);
 
       // Write error to log
       var timestamp = new Date(Date.now()+1000*60*60).toISOString();
       var log_message = timestamp + ", "
         + req.body.address + ", "
-        + req.body.message + "\n"
+        + req.body.message + ", "
+        + req.body.error + "\n"
       fs.open(app.get('webhookConfig').logs.truevault_log, 'a', 0666, function(e, id) {
         fs.write(id, log_message, null, 'utf8', function() {
           fs.close(id, function(){
