@@ -10,8 +10,13 @@ module.exports = {
       "username": "Server Error",
       "icon_emoji": ":gear:"
     },
+    truevault_payload: {
+      "username": "TrueVault Access Error",
+      "icon_emoji": ":pill:"
+    },
     logs: {
       "user_log": "logs/user.log",
       "service_log": "logs/service.log",
+      "truevault_log": "logs/truevault.log"
     }
 }

@@ -60,6 +60,8 @@ app.set('webhookConfig', webhookConfig);
 app.use('/health', require('./routes/health')(app, express.Router()));
 app.use('/user', require('./routes/user_error')(app, express.Router()));
 app.use('/service', require('./routes/server_error')(app, express.Router()));
+app.use('/truevault', require('./routes/truevault_error')(app, express.Router()));
+
 
 // Error parsing middleware - because standard errors are no bueno
 app.use(require('./errors'));
