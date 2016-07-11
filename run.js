@@ -20,7 +20,7 @@ var report_error = function (message) {
         },
         body: {
             server_id: process.env.HOSTNAME,
-            app_name: 'messaging',
+            app_name: 'error-logger',
             message: message
 
         },

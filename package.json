@@ -4,10 +4,12 @@
   "description": "Server to report and log errors",
   "main": "server.js",
   "dependencies": {
-    "cors": "^2.7.1",
     "body-parser": "^1.15.1",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "express-jwt": "^3.4.0",
+    "forever-monitor": "^1.7.0",
+    "ip": "^1.1.3",
     "jsonwebtoken": "^5.7.0",
     "morgan": "^1.7.0",
     "request": "^2.72.0"
