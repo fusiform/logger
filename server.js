@@ -32,10 +32,12 @@ if (process.env.FSFRM_ENV && process.env.FSFRM_ENV == "PROD") {
     // setup the logger
     app.use(morgan('combined', {stream: accessLogStream}));
     port = 3000;
+    var tvConfig = require('./config/tv-config.js').PROD;
 
 } else {
     console.log("Running in DEV MODE");
     app.use(morgan('dev'));
+    var tvConfig = require('./config/tv-config.js').DEV;
 
     // Dev logging configuration for better traceback
     ['log', 'warn'].forEach(function(method) {
@@ -51,17 +53,31 @@ if (process.env.FSFRM_ENV && process.env.FSFRM_ENV == "PROD") {
     });
 }
 
-// Configurations and Interfaces
-var webhookConfig = require('./config/webhook-config.js')
+// Configurations and Interfaces ===============================================
 
+// Webhook
+var webhookConfig = require('./config/webhook-config.js')
 app.set('webhookConfig', webhookConfig);
+
+// Authorization (JWT check)
+var authConfig = require('./config/auth-config.js')
+var jwtCheck_i = jwt(authConfig().JWT_OPTIONS_INTERNAL);
+app.set('jwtCheckInternal', jwtCheck_i);
+
+// TrueVault
+app.set('tvConfig', tvConfig);
+var tv = require('tv-interface')(tvConfig);
+app.set('tv', tv);
+app.set('schemas', require('./config/schemas.js'));
+
+// Routes ======================================================================
 
 // Add route logic
 app.use('/health', require('./routes/health')(app, express.Router()));
 app.use('/user', require('./routes/user_error')(app, express.Router()));
 app.use('/service', require('./routes/server_error')(app, express.Router()));
 app.use('/truevault', require('./routes/truevault_error')(app, express.Router()));
-
+app.use('/analytics', require('./routes/analytics')(app, express.Router()));
 
 // Error parsing middleware - because standard errors are no bueno
 app.use(require('./errors'));

@@ -27,3 +27,19 @@ For **TrueVault** errors, post to `/truevault/`, with a request **body** as foll
   "error":    "Error description"
 }
 ```
+
+
+### Analytics Endpoints
+
+`POST /analytics/`: Report an event
+
+Request body:
+- `event`: event name
+- `user`: user id
+
+`POST /analytics/summary`: Report an event
+
+Request body:
+- `event`: event name
+- `user`: user id
+- `since`: [optional] number of days to go back

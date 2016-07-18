@@ -22,7 +22,7 @@ module.exports = function(app, router) {
       // console.log(load);
 
       // Write error to log
-      var timestamp = new Date(Date.now()+1000*60*60).toISOString();
+      var timestamp = new Date(Date.now()).toISOString();
       var log_message = timestamp + ", "
         + req.body.server_id + ", "
         + req.body.app_name + ", "

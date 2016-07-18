@@ -14,6 +14,10 @@ module.exports = {
       "username": "TrueVault Access Error",
       "icon_emoji": ":pill:"
     },
+    analytics_digest_payload: {
+      "username": "Analytics Digest",
+      "icon_emoji": ":ledger:"
+    },
     logs: {
       "user_log": "logs/user.log",
       "service_log": "logs/service.log",
