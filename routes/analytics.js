@@ -117,7 +117,7 @@ module.exports = function(app, router) {
             res.status(200);
             res.json({
               success: true,
-              message: documents
+              message: documents.length
             });
           }
         });

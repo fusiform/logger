@@ -8,18 +8,18 @@ var tvInterface = require('tv-interface')(config.PROD);
 var fs = require('fs');
 var path = require('path');
 
-tvInterface.vaults.create("conversations", function(err, vault_id) {
-  console.log("Conversations vault created: " + vault_id);
+tvInterface.vaults.create("analytics", function(err, vault_id) {
+  console.log("Analytics vault created: " + vault_id);
   if (!err) {
-    tvInterface.schemas.create(vault_id, schemas.CONVERSATION,
+    tvInterface.schemas.create(vault_id, schemas.ANALYTICS,
       function(err, schema_id) {
       if (!err) {
-        console.log("Conversation schema added with ID: " + schema_id);
+        console.log("Analytics schema added with ID: " + schema_id);
         tvInterface.schemas.getAll(vault_id, function(err, schemas) {
           if (!err) {
             console.log(schemas);
-            config.PROD.TV_CONVO_VAULT_ID = vault_id;
-            config.PROD.TV_CONVO_SCHEMA_ID = schema_id;
+            config.PROD.TV_ANALYTICS_VAULT_ID = vault_id;
+            config.PROD.TV_ANALYTICS_SCHEMA_ID = schema_id;
             // Write to file
             var filename = 'tv-config.js'
             var file = path.join("../config", filename);

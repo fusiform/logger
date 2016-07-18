@@ -31,15 +31,25 @@ For **TrueVault** errors, post to `/truevault/`, with a request **body** as foll
 
 ### Analytics Endpoints
 
+Authorization: Internal
+
 `POST /analytics/`: Report an event
 
 Request body:
 - `event`: event name
 - `user`: user id
 
-`POST /analytics/summary`: Report an event
+Response:
+- `success`: was the request successful?
+- `message`: analytics document
+
+`POST /analytics/summary`: Receive a summary of number of events a user has done
 
 Request body:
 - `event`: event name
 - `user`: user id
 - `since`: [optional] number of days to go back
+
+Response:
+- `success`: was the request successful?
+- `message`: number of events

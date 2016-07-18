@@ -7,6 +7,8 @@ module.exports = {
   },
   "PROD": {
     "TV_API_KEY": "af3b70da-336a-430c-905d-2f107066aafb",
-    "TV_ACCOUNT_ID": "0660656f-04c6-408f-a0f0-b8824333798b"
+    "TV_ACCOUNT_ID": "0660656f-04c6-408f-a0f0-b8824333798b",
+    "TV_ANALYTICS_VAULT_ID": "f2407e5f-4fb1-429c-b6c0-6c01d9ec3915",
+    "TV_ANALYTICS_SCHEMA_ID": "f4439035-5c4e-4a61-a9f1-99dfae66e0a8"
   }
 }
