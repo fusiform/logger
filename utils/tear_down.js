@@ -3,7 +3,7 @@
 var config = require('../config/tv-config.js')
 var async = require('async');
 
-var tvInterface = require('tv-interface')(config.DEV);
+var tvInterface = require('tv-interface')(config.PROD);
 
 var vault_ids;
 
@@ -14,7 +14,7 @@ if (process.argv.length == 3) {
      * CHANGE THESE VALUES TO CLEAR A VAULT
      */
     vault_ids = [
-      "d2fb6cc1-da5f-4a6d-b303-a3836dfa9a14"
+      "f2407e5f-4fb1-429c-b6c0-6c01d9ec3915"
     ];
 }
 

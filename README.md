@@ -27,27 +27,84 @@ For **TrueVault** errors, post to `/truevault/`, with a request **body** as foll
   "error":    "Error description"
 }
 ```
+### Analytics Document Schema
 
+```
+ANALYTICS : {
+  "name": "analytics",
+  "fields": [
+    {
+      "name": "event",
+      "index": true,
+      "type": "string"
+    },
+    {
+      "name": "details",
+      "index": true,
+      "type": "string"
+    },
+    {
+      "name": "timestamp",
+      "index": true,
+      "type": "string"
+    },
+    {
+      "name": "user",
+      "index": true,
+      "type": "string"
+    }
+  ]
+}
+```
 
 ### Analytics Endpoints
 
-Authorization: Internal
+`POST /analytics/internal`: Report an event
 
-`POST /analytics/`: Report an event
+Authorization: Internal
 
 Request body:
 - `event`: event name
 - `user`: user id
+- `details`: [optional] whatever details you want to store
 
 Response:
 - `success`: was the request successful?
 - `message`: analytics document
 
-`POST /analytics/summary`: Receive a summary of number of events a user has done
+`POST /analytics/user`: Report an event
+
+Authorization: User
 
 Request body:
 - `event`: event name
-- `user`: user id
+- `details`: [optional] whatever details you want to store
+
+Response:
+- `success`: was the request successful?
+- `message`: analytics document
+
+
+`POST /analytics/summary/internal`: Receive a summary of number of events a user has done
+
+Authorization: Internal
+
+Request body:
+- `event`: event name
+- `user`: [optional] user id. If not provided, will count all of that type.
+- `since`: [optional] number of days to go back
+
+Response:
+- `success`: was the request successful?
+- `message`: number of events
+
+
+`POST /analytics/summary/user`: Receive a summary of number of events a user has done
+
+Authorization: User
+
+Request body:
+- `event`: event name
 - `since`: [optional] number of days to go back
 
 Response:

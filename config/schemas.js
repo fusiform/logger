@@ -9,6 +9,11 @@ module.exports = {
         "type": "string"
       },
       {
+        "name": "details",
+        "index": true,
+        "type": "string"
+      },
+      {
         "name": "timestamp",
         "index": true,
         "type": "string"

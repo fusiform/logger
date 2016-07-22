@@ -60,7 +60,9 @@ var webhookConfig = require('./config/webhook-config.js')
 app.set('webhookConfig', webhookConfig);
 
 // Authorization (JWT check)
-var authConfig = require('./config/auth-config.js')
+var authConfig = require('./config/auth-config.js');
+var jwtCheck = jwt(authConfig().JWT_OPTIONS);
+app.set('jwtCheck', jwtCheck);
 var jwtCheck_i = jwt(authConfig().JWT_OPTIONS_INTERNAL);
 app.set('jwtCheckInternal', jwtCheck_i);
 

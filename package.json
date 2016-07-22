@@ -4,6 +4,7 @@
   "description": "Server to report and log errors",
   "main": "server.js",
   "dependencies": {
+    "async": "^2.0.0",
     "body-parser": "^1.15.1",
     "cors": "^2.7.1",
     "express": "^4.13.4",
